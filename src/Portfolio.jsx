@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import './Portfolio.css';
-import { FaCode, FaServer, FaDatabase, FaCloud, FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaExternalLinkAlt, FaBriefcase, FaGraduationCap, FaBars, FaTimes } from 'react-icons/fa';
+import { FaCode, FaServer, FaDatabase, FaCloud, FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaExternalLinkAlt, FaBriefcase, FaGraduationCap, FaDownload, FaBars, FaTimes } from 'react-icons/fa';
 import { useScrollAnimation } from './useScrollAnimation';
 import { useForm, ValidationError } from '@formspree/react';
 
@@ -114,6 +114,9 @@ const Portfolio = () => {
         <div className="hero-buttons">
           <a href="#projects" className="btn btn-primary">View My Work</a>
           <a href="#contact" className="btn btn-secondary">Get In Touch</a>
+          <a href={`${baseUrl}Unurbat-Tumen-Ulzii-CV.docx`} download className="btn btn-secondary">
+            <FaDownload /> Download CV
+          </a>
         </div>
       </section>
 
@@ -416,17 +419,10 @@ const Portfolio = () => {
                   <p>+61 0473 457 356</p>
                 </div>
               </div>
-              <div className="contact-item">
-                <span className="icon"><FaMapMarkerAlt /></span>
-                <div>
-                  <strong>Location</strong>
-                  <p>Melbourne, VIC, Australia</p>
-                </div>
-              </div>
             </div>
             <div className="social-links">
               <a href="https://www.linkedin.com/in/unurbat/" className="social-icon" target="_blank" rel="noopener noreferrer"><FaLinkedin /> LinkedIn</a>
-              <a href="https://github.com/unurbat" className="social-icon" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a>
+              <a href="https://github.com/unurbat2848" className="social-icon" target="_blank" rel="noopener noreferrer"><FaGithub /> GitHub</a>
             </div>
           </div>
           <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
