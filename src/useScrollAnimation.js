@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
-export const useScrollAnimation = (options = {}) => {
+export const useScrollAnimation = ({ initialVisible = false, threshold = 0.2 } = {}) => {
   const elementRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(options.initialVisible || false);
-  const hasAnimated = useRef(options.initialVisible || false);
+  const [isVisible, setIsVisible] = useState(initialVisible);
+  const hasAnimated = useRef(initialVisible);
 
   useEffect(() => {
     if (hasAnimated.current) {
@@ -18,10 +18,7 @@ export const useScrollAnimation = (options = {}) => {
           observer.disconnect();
         }
       },
-      {
-        threshold: 0.2,
-        ...options,
-      }
+      { threshold }
     );
 
     if (elementRef.current) {
@@ -31,7 +28,7 @@ export const useScrollAnimation = (options = {}) => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [threshold]);
 
   return [elementRef, isVisible];
 };
